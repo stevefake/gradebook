@@ -1,0 +1,11 @@
+<h1>Grades#index</h1>
+<p>Find me in app/views/grades/index.html.erb</p>
+<h2><%= @grades.name %></h2>
+  <% if current_user && current_user.teacher? %>
+    <p class="grade-edit">
+      <%= link_to "Edit Grade", edit_grade_path(@grade.id) %>
+    </p>
+  <% end %>
+  <% if current_user && current_user.teacher? %>
+   <p class="grade-delete"><%= link_to "Delete", grade_path(@grade), method: "delete" %><p>
+  <% end %>
