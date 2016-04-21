@@ -13,7 +13,7 @@
        <%= f.submit "Create an account", class: "btn-submit" %>
       <% end %>
   </div>
-    <li><%= link_to "Create Report Card", grades_report_card_path, method: "get" %></li>
+    <li><%= link_to "Create Report Card", new_report_card_path(:id), method: "get" %></li>
     <li><%= link_to "Create Parent", new_parent_path, method: "get" %></li>
   </div>
 </div>

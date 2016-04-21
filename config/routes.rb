@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users
   patch 'users/:id/edit' => 'users#edit'
   resources :grades
-  get 'grades/:id/new_report_card' => 'grades#new_report_card'
+  get 'grades/:id/new_report_card' => 'grades#new_report_card', as: 'new_report_card'
   resources :teachers
 
   resources :students
