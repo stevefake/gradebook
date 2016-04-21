@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+  end
+  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -14,9 +17,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if current_user.update(user_params)
+        format.html { redirect_to current_user, notice: "Owner was successfully updated." }
+        format.json { render :show, status: :ok, location: current_user }
+      else
+        format.html { render :edit }
+        format.json { render json: current_user.errors, status: :unprocessable_entity }
+      end
+    end
+    # @user = User.find(params[:id])
+    # if @user.update_attributes(user_params)
+    #   # Handle a successful update.
+    # else
+    #   render 'edit'
+    # end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :password)
+    params.require(:user).permit(:password)
   end
 end

@@ -1,16 +1,19 @@
-<h1>Teachers#new</h1>
-<p>Find me in app/views/teachers/new.html.erb</p>
+<h1>Students#new</h1>
+<p>Find me in app/views/students/new.html.erb</p>
 <div class="container">
   <div class="form">
-    <h1>Create New Teacher</h1>
-      <%= form_for(@teacher) do |f| %>
+    <h1>Create New Student</h1>
+      <%= form_for(@student) do |f| %>
        <%= f.text_field :first_name, :placeholder => "First name" %>
        <%= f.text_field :last_name, :placeholder => "Last name" %>
        <!-- f.text_field :role, :placeholder => "Student" -->
        <%= f.email_field :email, :placeholder => "Email" %>
        <%= f.password_field :password, :placeholder => "Password" %>
-       <!--  f.text_field :teacher_id, :placeholder => "Teacher ID" -->
+       <%= f.text_field :teacher_id, :placeholder => "Teacher ID" %>
        <%= f.submit "Create an account", class: "btn-submit" %>
       <% end %>
+  </div>
+    <li><%= link_to "Create Report Card", grades_report_card_path, method: "get" %></li>
+    <li><%= link_to "Create Parent", new_parent_path, method: "get" %></li>
   </div>
 </div>

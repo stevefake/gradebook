@@ -1,0 +1,21 @@
+<h1><%= @grade.assignment_name %></h1>
+  <% if current_user && current_user.teacher? %>
+    <p class="grade-edit">
+      <%= link_to "Edit Grade Record", edit_grade_path(@grade.id) %>
+      form to input letter grade update
+
+      <div class="container">
+        <div class="form">
+          <h2>Edit Grade</h2>
+            <%= form_for(@grade) do |f| %>
+             <%= f.text_field :assignment_grade, :placeholder => "Assignment Grade" %>
+             <%= f.submit "Edit grade", class: "btn-submit" %>
+            <% end %>
+        </div>
+      </div>
+
+    </p>
+  <% end %>
+  <% if current_user && current_user.teacher? %>
+   <p class="grade-delete"><%= link_to "Delete Grade Record", grade_path(@grade), method: "delete" %><p>
+  <% end %>

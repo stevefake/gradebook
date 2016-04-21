@@ -1,0 +1,13 @@
+<h1>Users#edit</h1>
+	<div class="container">
+		<div class="form">
+      <h2>Update your password</h2>
+        <% if current_user %>
+        <%= form_for(current_user) do |f| %>
+         <%= f.password_field :password, :placeholder => "Password" %>
+         <%= f.submit "Enter your new password", class: "btn-submit" %>
+        <% end %>
+        <% end %>
+    </div>
+ 	</div>
+ </div>

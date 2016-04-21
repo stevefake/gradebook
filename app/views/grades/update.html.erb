@@ -1,7 +1,7 @@
 <h1><%= @grade.assignment_name %></h1>
   <% if current_user && current_user.teacher? %>
-    <p class="grade-edit">
-      <%= link_to "Edit Grade", edit_grade_path(@grade.id) %>
+    <p class="grade-update">
+      Updated Grade:  <%= @grade.assignment_grade %>
     </p>
   <% end %>
   <% if current_user && current_user.teacher? %>

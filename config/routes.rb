@@ -6,38 +6,47 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
 
   resources :users
+  patch 'users/:id/edit' => 'users#edit'
+  resources :grades
+  get 'grades/:id/new_report_card' => 'grades#new_report_card'
+  resources :teachers
 
-  get 'grades' => 'grades#index'       # only for teachers?         but only when logged in and only for a given student
-  get 'grades/new' => 'grades#new'     # but only for teachers logged in
-  get 'student/:id' => 'grades#show' #, as: :grades  # for anyone logged in but only for parents & students only for the single student
-  post 'grades' => 'grades#create'     # only for logged in teachers
+  resources :students
+
+  resources :parents
+
+  # get 'grades' => 'grades#index'       # only for teachers?         but only when logged in and only for a given student
+  # get 'grades/new' => 'grades#new'     # but only for teachers logged in
+  # get 'grades/:id' => 'grades#show'
+  # get 'student/:id' => 'grades#show' #, as: :grades  # for anyone logged in but only for parents & students only for the single student
+  # post 'grades' => 'grades#create'     # only for logged in teachers
   post 'login' => 'sessions#create'    # takes the data submitted through the form and logs the user in by starting a new session
   delete 'logout' => 'sessions#destroy'
-  get 'grades/edit' => 'grades#edit'
+  # get 'grades/edit' => 'grades#edit'
 
 
 
-  get 'parents/view_student_grades'
-
-  get 'students/view_grades'
-
-  get 'teachers/new'
-
-  get 'teachers/show'
-
-  get 'teachers/edit'
-
-  get 'teachers/update'
-
-  get 'teachers/create'
-
-  get 'teachers/delete'
-
-  get 'teachers/add_student'
-
-  get 'teachers/add_parent'
-
-  get 'teachers/add_grade'
+  # get 'parents/view_student_grades'
+  #
+  # get 'students/view_grades'
+  #
+  # get 'teachers/new'
+  #
+  # get 'teachers/show'
+  #
+  # get 'teachers/edit'
+  #
+  # get 'teachers/update'
+  #
+  # get 'teachers/create'
+  #
+  # get 'teachers/delete'
+  #
+  # get 'teachers/add_student'
+  #
+  # get 'teachers/add_parent'
+  #
+  # get 'teachers/add_grade'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

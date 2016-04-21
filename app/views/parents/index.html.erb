@@ -1,0 +1,9 @@
+<h1>Parents</h1>
+<% if current_user && current_user.teacher? %>
+<% @parents.each do |parent| %>
+<h2><%= parent.first_name + " " + parent.last_name %></h2>
+Parent of student:
+<br>
+  <li><%= parent.student.first_name + " " + parent.student.last_name %></li>
+<% end %>
+<% end %>

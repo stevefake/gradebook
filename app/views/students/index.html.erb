@@ -1,0 +1,15 @@
+<h1>Students#index</h1>
+<% if current_user && current_user.teacher? %>
+<% @students.each do |student| %>
+<h2><%= student.first_name + " " + student.last_name %></h2>
+Has teacher:
+<br>
+  <li><%= student.teacher.first_name + " " + student.teacher.last_name %></li>
+<br>
+Has parent(s):
+<br>
+  <% student.parents.each do |parent| %>
+  <li><%= parent.first_name + " " + parent.last_name %></li>
+<% end %>
+<% end %>
+<% end %>
