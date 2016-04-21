@@ -14,13 +14,13 @@
   What you you like to do?
     <ul>
       <% if current_user && current_user.teacher? %>
-      <li><%= link_to "Create Teacher", new_teacher_path, method: "get" %></li>
-      <li><%= link_to "Create Student", new_student_path, method: "get" %></li>
-      <li><%= link_to "Create Parent", new_parent_path, method: "get" %></li>
-      <li><%= link_to "See all Teachers", teachers_path, method: "get" %></li>
-      <li><%= link_to "See all Students", students_path, method: "get" %></li>
+      <li><%= link_to "Create Teacher", new_teacher_path %></li>
+      <li><%= link_to "Create Student", new_student_path %></li>
+      <li><%= link_to "Create Parent", new_parent_path %></li>
+      <li><%= link_to "See all Teachers", teachers_path %></li>
+      <li><%= link_to "See all Students", students_path %></li>
       <% end %>
-      <li><%= link_to "Grades", grades_path, method: "get" %></li>
+      <li><%= link_to "Grades", grades_path %></li>
       <li><%= link_to "Change password", edit_user_path(:id), method: "patch" %></li>
       <li><%= link_to "Log out", logout_path, method: "delete" %></li>
     </ul>
