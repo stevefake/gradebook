@@ -12,6 +12,7 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    @student.user = User.new #=> New User obejct
   end
 
   def create

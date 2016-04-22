@@ -7,9 +7,17 @@
     <br>Assignment Date:  <%= grade.assignment_date %>
     <br>Assignment Grade: <%= grade.assignment_grade %>
   <% end %>
-<% else %>
+<% elsif current_user.student? %>
   <h2><%= current_user.first_name + " " + current_user.last_name %></h2>
   <% @grades.each do |grade| %>
+    <%= link_to "Show Grade", grade_path(grade.id) %>
+    <br>Assignment:       <%= grade.assignment_name %>
+    <br>Assignment Date:  <%= grade.assignment_date %>
+    <br>Assignment Grade: <%= grade.assignment_grade %>
+  <% end %>
+<% else %>
+  <% @grades.each do |grade| %>
+  <h2><%= current_user.student.first_name + " " + current_user.student.last_name %></h2>
     <%= link_to "Show Grade", grade_path(grade.id) %>
     <br>Assignment:       <%= grade.assignment_name %>
     <br>Assignment Date:  <%= grade.assignment_date %>
