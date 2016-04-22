@@ -26,15 +26,16 @@ ActiveRecord::Schema.define(version: 20160420052949) do
 
   create_table "parents", force: :cascade do |t|
     t.integer  "student_id"
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "parents", ["student_id"], name: "index_parents_on_student_id"
+  add_index "parents", ["user_id"], name: "index_parents_on_user_id"
 
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -43,24 +44,27 @@ ActiveRecord::Schema.define(version: 20160420052949) do
 
   create_table "students", force: :cascade do |t|
     t.integer  "teacher_id"
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "students", ["teacher_id"], name: "index_students_on_teacher_id"
+  add_index "students", ["user_id"], name: "index_students_on_user_id"
 
   create_table "teachers", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "teachers", ["user_id"], name: "index_teachers_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
