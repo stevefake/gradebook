@@ -1,16 +1,13 @@
-<h1>Parents#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+<h1>Create a Parent</h1>
 <div class="container">
   <div class="form">
-    <h1>Create New Parent</h1>
-      <%= form_for(@parent) do |f| %>
-       <%= f.text_field :first_name, :placeholder => "First name" %>
-       <%= f.text_field :last_name, :placeholder => "Last name" %>
-       <!-- f.text_field :role, :placeholder => "Student" -->
-       <%= f.email_field :email, :placeholder => "Email" %>
-       <%= f.password_field :password, :placeholder => "Password" %>
-       <%= f.text_field :student_id, :placeholder => "Student ID" %>
-       <%= f.submit "Create an account", class: "btn-submit" %>
-      <% end %>
+    <%= form_for(@parent) do |f| %>
+     <%= f.text_field :first_name, :placeholder => "First name" %>
+     <%= f.text_field :last_name, :placeholder => "Last name" %>
+     <%= f.email_field :email, :placeholder => "Email" %>
+     <%= f.password_field :password, :placeholder => "Password" %>
+     <%= f.text_field :student_id, :placeholder => "Student ID" %>
+     <%= f.submit "Create an account", class: "btn-submit" %>
+    <% end %>
   </div>
 </div>

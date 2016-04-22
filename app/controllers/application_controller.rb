@@ -15,13 +15,4 @@ class ApplicationController < ActionController::Base
   def require_teacher
     redirect_to '/' unless current_user.teacher?
   end
-
-# Require student and parent might be redundant w/ user b/c they cant do anything special:
-  # def require_student
-  #    redirect_to '/' unless current_user.student?
-  # end
-  #
-  # def require_parent
-  #    redirect_to '/' unless current_user.parent?
-  # end
 end

@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Gradebook</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-  <% if current_user %>
-  Welcome <%= current_user.first_name %>!
-  <br>
-  What you you like to do?
-    <ul>
-      <% if current_user && current_user.teacher? %>
-      <li><%= link_to "Create Teacher", new_teacher_path %></li>
-      <li><%= link_to "Create Student", new_student_path %></li>
-      <li><%= link_to "Create Parent", new_parent_path %></li>
-      <li><%= link_to "See all Teachers", teachers_path %></li>
-      <li><%= link_to "See all Students", students_path %></li>
-      <% end %>
-      <li><%= link_to "Grades", grades_path %></li>
-      <li><%= link_to "Change password", edit_user_path(:id), method: "patch" %></li>
-      <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-    </ul>
-  <% else %>
-  <%= yield %>
-    <ul>
-      <li><%= link_to "Login", 'login' %></a></li>
-      <li><%= link_to "Signup", 'signup' %></a></li>
-    </ul>
-  <% end %>
-</body>
+    <head>
+        <title>Gradebook</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <% if current_user %>
+                <p class="navbar-text">
+                    Welcome
+                    <%= current_user.first_name %>! What you you like to do?
+                </p>
+                <ul class="nav navbar-nav">
+                    <% if current_user && current_user.teacher? %>
+                    <li><%= link_to "Create Teacher", new_teacher_path %></li>
+                    <li><%= link_to "Create Student", new_student_path %></li>
+                    <li><%= link_to "Create Parent", new_parent_path %></li>
+                    <li><%= link_to "See all Teachers", teachers_path %></li>
+                    <li><%= link_to "See all Students", students_path %></li>
+                    <% end %>
+                    <li><%= link_to "Grades", grades_path %></li>
+                    <li><%= link_to "Change password", edit_user_path(:id), method: "patch" %></li>
+                    <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+                </ul>
+            <% else %>
+                <ul class="nav navbar-nav">
+                    <li><%= link_to "Login", 'login' %></li>
+                    <li><%= link_to "Signup", 'signup' %></li>
+                </ul>
+                <% end %>
+            </div>
+        </nav>
+        <div class="container">
+          <%= yield %>
+        </div>
+    </body>
 </html>

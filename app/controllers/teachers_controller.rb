@@ -3,7 +3,7 @@ class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
   end
-  
+
   def new
     @teacher = Teacher.new
   end
@@ -20,18 +20,7 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(user_params)
     @teacher.save
-    # @grade = Grade.new(user_params) # params[:id]
-    # @grade.save
-    # session[:user_id] = @user.id
     redirect_to '/'
-    #
-    # @user = User.new(user_params)
-    # if @user.save
-    #   session[:user_id] = @user.id
-    #   redirect_to '/'
-    # else
-    #   redirect_to '/signup'
-    # end
   end
 
   def delete

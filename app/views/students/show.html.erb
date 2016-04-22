@@ -1,0 +1,21 @@
+<h1><%= @student.first_name + " " + @student.last_name %></h1>
+<% if current_user && current_user.teacher? %>
+<h2><%= @student.first_name + " " + @student.last_name %></h2>
+Has teacher:
+<ul>
+    <li><%= @student.teacher.first_name + " " + @student.teacher.last_name %></li>
+</ul>
+<ul>
+    <li>
+        Has parent(s):</li>
+    <ul>
+        <% @student.parents.each do |parent| %>
+        <li><%= parent.first_name + " " + parent.last_name %></li>
+        <li><%= link_to "Create Parent", new_parent_path, method: "get" %></li>
+        <% end %>
+    </ul>
+<li>Grades:</li>
+<ul>
+    <li><%= link_to "Create Report Card", new_report_card_path(@student.id), method: "get" %></li>
+</ul>
+<% end %>

@@ -1,11 +1,10 @@
 <h1>Teachers</h1>
 <% if current_user && current_user.teacher? %>
 <% @teachers.each do |teacher| %>
-<h2><%= teacher.first_name + " " + teacher.last_name %></h2>
+<h4><%= teacher.first_name + " " + teacher.last_name %></h4>
 Has students:
-<br>
-<%= teacher.students.each do |student| %>
-<li><%= student.first_name + " " + student.last_name %></li>
+<% teacher.students.each do |student| %>
+<li><%= "#{student.first_name}" + " " + "#{student.last_name}" %></li>
 <% end %>
 <% end %>
 <% end %>

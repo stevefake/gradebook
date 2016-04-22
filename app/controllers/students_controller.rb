@@ -20,9 +20,14 @@ class StudentsController < ApplicationController
     redirect_to 'students'
   end
 
+  def new_report_card
+    @student = Student.find(params[:id])
+      CreateReportCardJob.perform_later(@student)
+  end
+
   private
 
   def user_params
-    params.require(:student).permit(:first_name, :last_name) # add i think? :email, :password, :teacher_id
+    params.require(:student).permit(:first_name, :last_name)
   end
 end

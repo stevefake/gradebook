@@ -1,10 +1,18 @@
 <h1>Grades</h1>
 <% if current_user && current_user.teacher? %>
-<% @grades.each do |grade| %>
-<h2><%= grade.student.first_name + " " + grade.student.last_name %></h2>
-<%= link_to "Show Grade", grade_path(grade.id) %>
-<br>Assignment:       <%= grade.assignment_name %>
-<br>Assignment Date:  <%= grade.assignment_date %>
-<br>Assignment Grade: <%= grade.assignment_grade %>
-<% end %>
+  <% @grades.each do |grade| %>
+    <h2><%= grade.student.first_name + " " + grade.student.last_name %></h2>
+    <%= link_to "Show Grade", grade_path(grade.id) %>
+    <br>Assignment:       <%= grade.assignment_name %>
+    <br>Assignment Date:  <%= grade.assignment_date %>
+    <br>Assignment Grade: <%= grade.assignment_grade %>
+  <% end %>
+<% else %>
+  <h2><%= current_user.first_name + " " + current_user.last_name %></h2>
+  <% @grades.each do |grade| %>
+    <%= link_to "Show Grade", grade_path(grade.id) %>
+    <br>Assignment:       <%= grade.assignment_name %>
+    <br>Assignment Date:  <%= grade.assignment_date %>
+    <br>Assignment Grade: <%= grade.assignment_grade %>
+  <% end %>
 <% end %>
