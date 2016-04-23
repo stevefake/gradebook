@@ -24,6 +24,13 @@ class StudentsController < ApplicationController
   def new_report_card
     @student = Student.find(params[:id])
       CreateReportCardJob.perform_later(@student)
+
+      respond_to do |format|
+        # Tell the ReportMailer to send a welcome email after save
+        ReportCardMailer.report_card_email(@student).deliver_now
+        format.html { redirect_to(@student, notice: 'Report card was successfully sent.') }
+        format.json { render json: @student, status: :created, location: @student }
+      end
   end
 
   private

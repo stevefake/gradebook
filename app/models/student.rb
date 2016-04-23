@@ -3,6 +3,6 @@ class Student < ActiveRecord::Base
   has_many :grades
   has_many :parents
   has_one :user
-  accepts_nested_attributes_for :user
-  
+  accepts_nested_attributes_for :user, allow_destroy: true
+
 end

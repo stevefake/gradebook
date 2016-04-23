@@ -11,7 +11,7 @@
           <%= f.fields_for :user do |user_f| %>
             <h2>New User</h2>
             <%= user_f.text_field :teacher_id, :placeholder => "Teacher ID" %>
-            <% user_f.text_field :student_id %>
+            <% user_f.text_field :student_id %> <!-- i still need to autopopulate this? -->
              <!-- user_f.text_field :first_name, :placeholder => "First name"  -->
              <!-- user_f.text_field :last_name, :placeholder => "Last name"  -->
              <!-- user_f.email_field :email, :placeholder => "Email"  -->

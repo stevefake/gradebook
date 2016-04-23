@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>A message from the Lawndale High Principle, please find the new report card for <%= @student.first_name + " " + @student.last_name %></h1>
+    <p>
+      The report card for <%= @student.first_name + " " + @student.last_name %> is included is an attachment in this email.
+
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thank you,
+      Principle Angela Li</p>
+  </body>
+</html>
