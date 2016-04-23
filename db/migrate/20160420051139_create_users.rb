@@ -4,9 +4,9 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :teacher, index: true, foreign_key: true
       t.belongs_to :student, index: true, foreign_key: true
       t.belongs_to :parent, index: true, foreign_key: true
-      t.string :first_name
-      t.string :last_name
-      t.string :email
+      # t.string :first_name
+      # t.string :last_name
+      # t.string :email
       t.string :role
       t.string :password_digest
       t.timestamps null: false

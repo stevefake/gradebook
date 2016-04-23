@@ -11,15 +11,16 @@
           <%= f.fields_for :user do |user_f| %>
             <h2>New User</h2>
             <%= user_f.text_field :teacher_id, :placeholder => "Teacher ID" %>
-            <%= user_f.text_field :student_id, :placeholder => "Student ID" %>
-            <%= user_f.text_field :first_name, :placeholder => "First name" %>
-            <%= user_f.text_field :last_name, :placeholder => "Last name" %>
-            <%= user_f.email_field :email, :placeholder => "Email" %>
-            <%= user_f.password_field :password, :placeholder => "Password" %>
+            <% user_f.text_field :student_id %>
+             <!-- user_f.text_field :first_name, :placeholder => "First name"  -->
+             <!-- user_f.text_field :last_name, :placeholder => "Last name"  -->
+             <!-- user_f.email_field :email, :placeholder => "Email"  -->
+             <!-- user_f.password_field :password, :placeholder => "Password"  -->
              <!-- user_f.submit "Create an account", class: "btn-submit" -->
           <% end %>
-
-       <%= f.submit "Create an account", class: "btn-submit" %>
+       <br>
+       <br>
+       <%= f.submit "Create account", class: "btn-submit" %>
       <% end %>
   </div>
   </div>

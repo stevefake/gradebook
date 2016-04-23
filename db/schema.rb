@@ -63,9 +63,6 @@ ActiveRecord::Schema.define(version: 20160420052949) do
     t.integer  "teacher_id"
     t.integer  "student_id"
     t.integer  "parent_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
     t.string   "role"
     t.string   "password_digest"
     t.datetime "created_at",      null: false

@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(user_params)
     @student.save
-    redirect_to 'students'
+    redirect_to students_path
   end
 
   def new_report_card
@@ -29,6 +29,6 @@ class StudentsController < ApplicationController
   private
 
   def user_params
-    params.require(:student).permit(:first_name, :last_name)
+    params.require(:student).permit(:first_name, :last_name, :email, :password, :teacher_id, :user_attributes)
   end
 end
