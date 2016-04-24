@@ -1,6 +1,6 @@
 class ReportCardMailer < ActionMailer::Base
   default from: "admin@lawndalehigh.edu"
-  # layout 'mailer'
+  layout 'mailer'
 
   def report_card_email(student)
     @student = student

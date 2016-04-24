@@ -1,13 +1,28 @@
-== README
+== About Gradebook
 
 To get the Gradebook application up and running:
 
-* Ruby version 2.3.0
+* Have Ruby version 2.3.0 installed
 
-* bundle install
+* Run bundle install
 
-* rails s
+* Launch rails s
 
 * Database initialization: if empty, run rake db:seed to populate with dummy data
 
 * Deployment: localhost:3000
+
+Software features:
+* Visitors will see the login page.
+* Teachers who have logged in can:
+** Create teachers
+** Create students
+** Create parents (for a particular student)
+** Enter, edit, or delete grades for a student.
+** Create Report Cards
+* Students who have logged in can:
+** See their grades.
+* Parents who have logged in can:
+** See their student's grades.
+* Any user who has logged in can:
+** Change their password
